@@ -1,0 +1,11 @@
+# Dependencies
+node_modules/
+
+# Environment Variables (ความลับ เช่น DB password, API keys)
+.env
+.env.local
+
+# Logs & System Files
+*.log
+.DS_Store
+Thumbs.db
