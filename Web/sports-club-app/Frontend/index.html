@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ศูนย์บริการการกีฬา - Sports Booking System</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- เชื่อมโยงไฟล์ CSS -->
+    <link rel="stylesheet" href="style.css?v=4">
+</head>
+<body>
+
+    <!-- 1. SPLASH SCREEN (หน้าต้อนรับแรก) -->
+    <div id="splash-screen">
+        <div class="logo-box">
+            <i class="fa-solid fa-trophy splash-icon"></i>
+            <h1 data-key="splash_title">ยินดีต้อนรับสู่ระบบบริการการกีฬา</h1>
+            <p data-key="splash_subtitle">Sports Club & Facility Booking System</p>
+            <button class="btn-enter" onclick="enterWebsite()">
+                <span data-key="btn_enter">เข้าสู่เว็บไซต์</span> <i class="fa-solid fa-right-to-bracket"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- 2. NEWS TICKER BAR -->
+    <div class="news-ticker">
+        <div class="news-title" data-key="news_title">News:</div>
+        <div class="news-content" data-key="news_text">ขอเชิญชวนนิสิตและบุคลากรใช้บริการจองสนามและยืมอุปกรณ์กีฬาออนไลน์ผ่านระบบใหม่ได้แล้ววันนี้! | ป้องกันการจองซ้ำด้วยระบบ Real-time Conflict Checking</div>
+    </div>
+
+    <!-- 3. MAIN HEADER BRANDING -->
+    <header class="main-header">
+        <div class="brand-logo">
+            <i class="fa-solid fa-volleyball"></i>
+            <div class="brand-text">
+                <h2 data-key="brand_title">ศูนย์บริการการกีฬาและนันทนาการ</h2>
+                <p data-key="brand_subtitle">SPORTS & RECREATION SERVICES CENTER</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- 4. NAVIGATION BAR -->
+    <nav>
+        <ul class="nav-links">
+            <li><a onclick="switchPage('home')" id="nav-home" class="active" data-key="nav_home">หน้าแรก</a></li>
+            <li><a onclick="switchPage('booking')" id="nav-booking" data-key="nav_booking">จองสนามและยืมอุปกรณ์</a></li>
+            <li><a onclick="switchPage('members')" id="nav-members" data-key="nav_members">จัดการสมาชิก</a></li>
+            <li><a onclick="switchPage('analytics')" id="nav-analytics" data-key="nav_analytics">ระบบสารสนเทศ/สรุปข้อมูล</a></li>
+            <li><a onclick="alert('ติดต่อศูนย์บริการการกีฬา โทร. 055-XXX-XXX')" data-key="nav_contact">ติดต่อเรา</a></li>
+        </ul>
+        
+        <div class="nav-right">
+            <!-- ปุ่มสลับภาษา TH / EN -->
+            <div class="lang-switch">
+                <button id="btn-th" class="active" onclick="changeLanguage('th')">TH</button>
+                <span>|</span>
+                <button id="btn-en" onclick="changeLanguage('en')">EN</button>
+            </div>
+            <div class="search-box">
+                <input type="text" id="globalSearchInput" placeholder="Search ...">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 5. MAIN CONTENT AREA -->
+    <div class="container">
+
+        <!-- ================= PAGE 1: HOME PORTAL ================= -->
+        <div id="page-home" class="page-section active">
+            <div class="hero-banner">
+                <h2 data-key="hero_title">พื้นที่ และสนามกีฬา</h2>
+                <p data-key="hero_subtitle">เปิดให้บริการสนามแบดมินตัน ฟุตซอล บาสเกตบอล และยืมอุปกรณ์กีฬาสำหรับนิสิตและบุคลากร</p>
+            </div>
+
+            <!-- Quick Service Circles -->
+            <h3 class="service-section-title" data-key="service_title">บริการหลักของระบบ</h3>
+            <div class="circle-menu-grid">
+                <div class="circle-item" onclick="switchPage('booking')">
+                    <div class="circle-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                    <span data-key="menu_court">จองสนามและยืมอุปกรณ์</span>
+                </div>
+                <div class="circle-item" onclick="switchPage('members')">
+                    <div class="circle-icon"><i class="fa-solid fa-users-gear"></i></div>
+                    <span data-key="menu_member">จัดการรายชื่อสมาชิก</span>
+                </div>
+                <div class="circle-item" onclick="switchPage('analytics')">
+                    <div class="circle-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <span data-key="menu_reports">รายงานสรุปการใช้งาน</span>
+                </div>
+                <div class="circle-item" onclick="switchPage('analytics')">
+                    <div class="circle-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                    <span data-key="menu_revenue">สรุปรายได้สถานที่</span>
+                </div>
+                <div class="circle-item" onclick="alert('ระเบียบการใช้งาน: จองล่วงหน้าได้ไม่เกิน 7 วัน และเปิดบริการ 08.00 - 20.00 น.')">
+                    <div class="circle-icon"><i class="fa-solid fa-book"></i></div>
+                    <span data-key="menu_guide">คู่มือการใช้งาน</span>
+                </div>
+                <div class="circle-item" onclick="alert('ติดต่อศูนย์บริการการกีฬา โทร. 055-XXX-XXX')">
+                    <div class="circle-icon"><i class="fa-solid fa-headset"></i></div>
+                    <span data-key="nav_contact">ติดต่อเรา</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 2: BOOKING SYSTEM ================= -->
+        <div id="page-booking" class="page-section">
+            <div class="card-box">
+                <h2 class="card-title"><i class="fa-solid fa-calendar-plus highlight-icon"></i> <span data-key="booking_heading">ทำรายการจองสนามและยืมอุปกรณ์</span></h2>
+                
+                <form id="bookingForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label data-key="lbl_booking_id">รหัสการจอง (Booking ID)</label>
+                            <input type="text" id="booking_id" value="BK908" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-key="lbl_member_id">รหัสสมาชิก (Member ID)</label>
+                            <input type="text" id="member_id" value="M0001" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-key="lbl_court_id">เลือกสนาม (Court ID)</label>
+                            <select id="court_id">
+                                <option value="C001">C001 - Badminton Court 1</option>
+                                <option value="C002">C002 - Badminton Court 2</option>
+                                <option value="C003">C003 - Basketball Court 1</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label data-key="lbl_date">วันที่จอง</label>
+                            <input type="date" id="booking_date" value="2026-11-05" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-key="lbl_start_time">เวลาเริ่มต้น</label>
+                            <input type="time" id="start_time" value="16:00" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-key="lbl_end_time">เวลาสิ้นสุด</label>
+                            <input type="time" id="end_time" value="18:00" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-key="lbl_payment_id">รหัสชำระเงินค่าสนาม (Payment ID)</label>
+                            <input type="text" id="payment_id_court" value="P908" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-key="lbl_payment_method">ช่องทางชำระเงิน</label>
+                            <select id="payment_method">
+                                <option value="Credit Card">Credit Card</option>
+                                <option value="PromptPay">PromptPay</option>
+                                <option value="Cash">Cash</option>
+                            </select>
+                        </div>
+
+                        <!-- ส่วนอุปกรณ์เสริม -->
+                        <div class="form-group full section-divider">
+                            <span class="sub-title" data-key="lbl_opt_equip">บริการยืมอุปกรณ์เพิ่มเติม (Optional)</span>
+                        </div>
+                        <div class="form-group">
+                            <label data-key="lbl_equip_id">รหัสอุปกรณ์ (Equipment ID)</label>
+                            <input type="text" id="equipment_id" placeholder="e.g. EQ001">
+                        </div>
+                        <div class="form-group">
+                            <label data-key="lbl_quantity">จำนวนที่ต้องการยืม</label>
+                            <input type="number" id="equip_quantity" value="0" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label data-key="lbl_rental_id">รหัสรายการยืม (Rental ID)</label>
+                            <input type="text" id="rental_id" placeholder="e.g. R908">
+                        </div>
+                        <div class="form-group">
+                            <label data-key="lbl_equip_payment_id">รหัสชำระค่าอุปกรณ์ (Equip Payment ID)</label>
+                            <input type="text" id="payment_id_equip" placeholder="e.g. P909">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <i class="fa-solid fa-check-circle"></i> <span data-key="btn_submit">ยืนยันการจองสนามและประมวลผลธุรกรรม</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 3: MEMBER MANAGEMENT ================= -->
+        <div id="page-members" class="page-section">
+            <div class="card-box">
+                <h2 class="card-title"><i class="fa-solid fa-id-card highlight-icon"></i> <span>ระบบค้นหาและจัดการข้อมูลสมาชิก</span></h2>
+                
+                <div class="form-grid" style="margin-bottom: 20px;">
+                    <div class="form-group full" style="display: flex; gap: 10px;">
+                        <input type="text" id="memberSearchInput" placeholder="พิมพ์ Member ID, ชื่อ หรือ นามสกุล เพื่อค้นหา..." style="flex: 1;">
+                        <button onclick="fetchMembers()" class="btn-submit" style="width: auto; margin-top: 0; padding: 0 25px;">
+                            <i class="fa-solid fa-magnifying-glass"></i> ค้นหา
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>รหัสสมาชิก (Member ID)</th>
+                                <th>ชื่อ - นามสกุล</th>
+                                <th>เบอร์โทรศัพท์</th>
+                                <th>อีเมล</th>
+                                <th>ประเภทสมาชิก</th>
+                            </tr>
+                        </thead>
+                        <tbody id="memberTableBody">
+                            <tr><td colspan="5" style="text-align: center;">กำลังโหลดข้อมูลสมาชิก...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 4: ANALYTICS DASHBOARD ================= -->
+        <div id="page-analytics" class="page-section">
+            <div class="card-box">
+                <h2 class="card-title"><i class="fa-solid fa-chart-pie highlight-icon"></i> <span data-key="analytics_heading">สรุปข้อมูลรายงานการเข้าใช้บริการ (Reporting View)</span></h2>
+
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                        <div class="kpi-val">
+                            <h3 id="kpi-bookings">0</h3>
+                            <p data-key="kpi_total_bookings">ยอดการจองสนามรวม</p>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon"><i class="fa-solid fa-clock"></i></div>
+                        <div class="kpi-val">
+                            <h3 id="kpi-hours">0</h3>
+                            <p data-key="kpi_total_hours">ชั่วโมงการใช้งานรวม</p>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon"><i class="fa-solid fa-coins"></i></div>
+                        <div class="kpi-val">
+                            <h3 id="kpi-revenue">฿0</h3>
+                            <p data-key="kpi_total_revenue">รายได้รวมทั้งหมด</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="fetchReports()" class="btn-refresh">
+                    <i class="fa-solid fa-rotate-right"></i> <span data-key="btn_refresh">โหลดข้อมูลรายงานล่าสุด</span>
+                </button>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th data-key="th_facility">ชื่อสถานที่</th>
+                                <th data-key="th_type">ประเภท</th>
+                                <th data-key="th_year">ปี</th>
+                                <th data-key="th_week">สัปดาห์ที่</th>
+                                <th data-key="th_bookings">จำนวนครั้งที่จอง</th>
+                                <th data-key="th_hours">ชั่วโมงรวม</th>
+                                <th data-key="th_revenue">รายได้รวม (บาท)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reportTbody">
+                            <tr><td colspan="7" class="text-center">กดปุ่มเพื่อโหลดรายงาน</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 ศูนย์บริการการกีฬา | University Term Project Database System</p>
+    </footer>
+
+    <!-- เชื่อมโยงไฟล์ JavaScript External -->
+    <script src="script.js"></script>
+</body>
+</html>
